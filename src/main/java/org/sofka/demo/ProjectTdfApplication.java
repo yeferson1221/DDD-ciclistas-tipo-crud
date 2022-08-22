@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProjectTdfApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("server.servlet.context-path", "/projectTDF");
+		System.setProperty("server.servlet.context-path", "/cycling");
 		SpringApplication.run(ProjectTdfApplication.class, args);
 	}
 

@@ -31,7 +31,7 @@ public class CyclingTeam {
 	@Column(name = "name", length = 30, nullable=false, unique=false)
 	private String name;
 	
-	@Column(name = "team_code", length = 5, nullable=false, unique=true)
+	@Column(name = "team_code", length = 3, nullable=false, unique=true)
 	private String teamCode;
 	
 	@ManyToOne

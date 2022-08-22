@@ -20,11 +20,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api")
 public class CyclistController {
 	@Autowired
 	private CyclistRepository cyclistRepository;
 	
-	@GetMapping("/api/cyclists")
+	@GetMapping("/cyclists")
 	public ResponseEntity<List<Cyclist>> findAllCyclists(
 			@RequestParam Map<String, String> reqParam) {
 		if (!reqParam.isEmpty()) return ResponseEntity.badRequest().build(); 
@@ -33,12 +34,12 @@ public class CyclistController {
 		return ResponseEntity.ok().body(cyclists);
 	}
 	
-	@PostMapping("/api/newCyclist")
+	@PostMapping("/newCyclist")
 	public Cyclist saveNewCyclist(@Validated @RequestBody Cyclist newCyclist) {
 		return cyclistRepository.save(newCyclist);
 	}
 	
-	@GetMapping("/api/cyclist/{competitorNumber}")
+	@GetMapping("/cyclist/{competitorNumber}")
 	public ResponseEntity<Cyclist> findCyclistByCompetitorNumber(
 			@PathVariable(name = "competitorNumber") String competitorNumber) {
 		Optional<Cyclist> cyclist = cyclistRepository.findCyclistByCompetitorNumber(competitorNumber);
@@ -46,7 +47,7 @@ public class CyclistController {
 		else return ResponseEntity.notFound().build();
 	}
 	
-	@RequestMapping(value = "/api/cyclists", method = RequestMethod.GET, params = "teamCode")
+	@RequestMapping(value = "/cyclists", method = RequestMethod.GET, params = "teamCode")
 	public List<Cyclist> findCyclistsByTeamCode(
 			@RequestParam(name = "teamCode") String teamCode) {
 		List<Cyclist> cyclists = new ArrayList<>();

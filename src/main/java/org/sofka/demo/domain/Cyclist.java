@@ -25,7 +25,7 @@ public class Cyclist {
 	@Column(name = "full_name", length = 100, nullable = false)
 	private String fullName;
 	
-	@Column(name = "competitor_number", length = 5, nullable = false, unique = true)
+	@Column(name = "competitor_number", length = 3, nullable = false, unique = true)
 	private String competitorNumber;
 	
 	@ManyToOne

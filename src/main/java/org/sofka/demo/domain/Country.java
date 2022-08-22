@@ -22,14 +22,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Country {
 	@Id
-	@Column(name = "id")
+	@Column(name = "id" )
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name = "name", length=50, nullable=false, unique=false)
 	private String name;
 	
-	@Column(name = "code", length=5, nullable=false, unique=true)
+	@Column(name = "code", length=3, nullable=false, unique=true)
 	private String code;
 	
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)

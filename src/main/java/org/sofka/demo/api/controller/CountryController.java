@@ -10,27 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
+@RequestMapping("/api")
 public class CountryController {
 	@Autowired
 	private CountryRepository countryRepository;
 	
-	@GetMapping("/api/countries")
+	@GetMapping("/countries")
 	public List<Country> findAllCountries() {
 		List<Country> countries = new ArrayList<>();
 		countryRepository.findAll().forEach(countries::add);
 		return countries;
 	}
 	
-	@GetMapping("/api/country/{code}")
+	@GetMapping("/country/{code}")
 	public ResponseEntity<Country> findCountryByCode(@PathVariable(name = "code") String code) {
 		Optional<Country> country = countryRepository.findCountryByCode(code);
 		if (country.isPresent()) {
@@ -40,12 +36,12 @@ public class CountryController {
 		}
 	}
 	
-	@PostMapping("/api/newCountry")
+	@PostMapping("/newCountry")
 	public Country saveCountry(@Validated @RequestBody Country country) {
 		return countryRepository.save(country);
 	}
 	
-	@PutMapping("api/country/{id}")
+	@PutMapping("/country/{id}")
 	public Country updateCountry(@RequestBody Country newCountry, @PathVariable int id) {
 		return countryRepository.findById(id).map(country -> {
 			country.setName(newCountry.getName());

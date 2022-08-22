@@ -11,8 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/api")
+
 @RestController
+@RequestMapping("/api")
 public class CyclingTeamController {
 	@Autowired
 	private CyclingTeamRepository teamRepository;
