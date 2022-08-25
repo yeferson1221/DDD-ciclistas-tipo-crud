@@ -7,17 +7,11 @@ import java.util.Optional;
 
 import org.sofka.demo.domain.Cyclist;
 import org.sofka.demo.repository.CyclistRepository;
+import org.sofka.demo.repository.UserRepositoryIpm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -25,23 +19,31 @@ public class CyclistController {
 	@Autowired
 	private CyclistRepository cyclistRepository;
 	
+	@Autowired
+    private UserRepositoryIpm userRepositoryIpm;
+	
+	
 	@GetMapping("/cyclists")
 	public ResponseEntity<List<Cyclist>> findAllCyclists(
-			@RequestParam Map<String, String> reqParam) {
+			@RequestParam Map<String, String> reqParam , @RequestHeader(value="Authorization") String token) {
+		if (!userRepositoryIpm.validateToken(token)) { return null; }
 		if (!reqParam.isEmpty()) return ResponseEntity.badRequest().build(); 
 		List<Cyclist> cyclists = new ArrayList<>();
 		cyclistRepository.findAll().forEach(cyclists::add);
 		return ResponseEntity.ok().body(cyclists);
 	}
+
 	
+
 	@PostMapping("/newCyclist")
-	public Cyclist saveNewCyclist(@Validated @RequestBody Cyclist newCyclist) {
+	public Cyclist saveNewCyclist(@Validated @RequestBody Cyclist newCyclist, @RequestHeader(value="Authorization") String token) {
 		return cyclistRepository.save(newCyclist);
 	}
 	
 	@GetMapping("/cyclist/{competitorNumber}")
 	public ResponseEntity<Cyclist> findCyclistByCompetitorNumber(
-			@PathVariable(name = "competitorNumber") String competitorNumber) {
+			@PathVariable(name = "competitorNumber") String competitorNumber, @RequestHeader(value="Authorization") String token) {
+		if (!userRepositoryIpm.validateToken(token)) { return null; }
 		Optional<Cyclist> cyclist = cyclistRepository.findCyclistByCompetitorNumber(competitorNumber);
 		if (cyclist.isPresent()) return ResponseEntity.ok().body(cyclist.get());
 		else return ResponseEntity.notFound().build();
@@ -49,7 +51,8 @@ public class CyclistController {
 	
 	@RequestMapping(value = "/cyclists", method = RequestMethod.GET, params = "teamCode")
 	public List<Cyclist> findCyclistsByTeamCode(
-			@RequestParam(name = "teamCode") String teamCode) {
+			@RequestParam(name = "teamCode") String teamCode,@RequestHeader(value="Authorization") String token) {
+		if (!userRepositoryIpm.validateToken(token)) { return null; }
 		List<Cyclist> cyclists = new ArrayList<>();
 		cyclistRepository.findByCyclingTeamTeamCode(teamCode).forEach(cyclists::add);
 		return cyclists;

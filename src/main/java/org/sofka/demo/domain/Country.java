@@ -34,7 +34,6 @@ public class Country {
 	
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
 	@JsonIgnore
-	//@JsonSerialize(using = CyclingTeamListSerializer.class)
 	private List<CyclingTeam> cyclingTeams;
 	
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
