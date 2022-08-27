@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.AccessType;
 
 @Entity
 @Table(name = "countries")
@@ -29,8 +30,8 @@ public class Country {
 	@Column(name = "name", length=50, nullable=false, unique=false)
 	private String name;
 	
-	@Column(name = "code", length=3, nullable=false, unique=true)
-	private String code;
+	@Column(name = "country_code", length=3, nullable=false, unique=true)
+	private String countryCode;
 	
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
 	@JsonIgnore
@@ -39,4 +40,26 @@ public class Country {
 	@OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Cyclist> cyclists;
+
+	public Country(int id, String name, String countryCode, List<CyclingTeam> cyclingTeams, List<Cyclist> cyclists) {
+		this.id = id;
+		this.name = name;
+		this.countryCode = countryCode;
+		this.cyclingTeams = cyclingTeams;
+		this.cyclists = cyclists;
+	}
+
+	public Country(int id, String name, String countryCode) {
+		this.id = id;
+		this.name = name;
+		this.countryCode = countryCode;
+	}
+	public Country(String name, String countryCode) {
+		this.name = name;
+		this.countryCode = countryCode;
+	}
+
+	public Country(int id) {
+		this.id = id;
+	}
 }

@@ -41,4 +41,28 @@ public class CyclingTeam {
 	@OneToMany(mappedBy = "cyclingTeam", cascade = CascadeType.ALL)
 	@JsonIgnore
 	private List<Cyclist> cyclists;
+
+	public CyclingTeam(int id, String name, String teamCode) {
+		this.id = id;
+		this.name = name;
+		this.teamCode = teamCode;
+	}
+
+	public CyclingTeam(int id, String name, String teamCode, Country country, List<Cyclist> cyclists) {
+		this.id = id;
+		this.name = name;
+		this.teamCode = teamCode;
+		this.country = country;
+		this.cyclists = cyclists;
+	}
+	public CyclingTeam(int id, String name, String teamCode, Country country) {
+		this.id = id;
+		this.name = name;
+		this.teamCode = teamCode;
+		this.country = country;
+
+	}
+	public CyclingTeam(int id) {
+		this.id = id;
+	}
 }

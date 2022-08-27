@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 @Transactional
@@ -36,8 +35,9 @@ public class UserRepositoryIpm implements UserRepository{
     }
 
     @Override
-    public void register(User user) {
+    public User register(User user) {
         entityManager.merge(user);
+        return user;
     }
 
 

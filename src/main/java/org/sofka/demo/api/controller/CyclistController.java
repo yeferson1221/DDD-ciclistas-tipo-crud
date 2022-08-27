@@ -37,6 +37,7 @@ public class CyclistController {
 
 	@PostMapping("/newCyclist")
 	public Cyclist saveNewCyclist(@Validated @RequestBody Cyclist newCyclist, @RequestHeader(value="Authorization") String token) {
+		if (!userRepositoryIpm.validateToken(token)) { return null; }
 		return cyclistRepository.save(newCyclist);
 	}
 	

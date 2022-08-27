@@ -18,9 +18,16 @@ public class User {
     @Column(name = "name", length = 100, nullable = false)
     private String fullName;
 
-    @Column(name = "email", length = 225, nullable = false)
+    @Column(name = "email", length = 225, nullable = false, unique = true)
     private String email;
 
     @Column(name = "password", length = 100, nullable = false)
     private String password;
+
+    public User(int id, String fullName, String email, String password) {
+        this.id = id;
+        this.fullName = fullName;
+        this.email = email;
+        this.password = password;
+    }
 }

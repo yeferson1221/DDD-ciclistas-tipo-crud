@@ -3,7 +3,6 @@ package org.sofka.demo.api.controller;
 
 import org.sofka.demo.domain.User;
 import org.sofka.demo.repository.UserRepository;
-import org.sofka.demo.repository.UserRepositoryIpm;
 import org.sofka.demo.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;

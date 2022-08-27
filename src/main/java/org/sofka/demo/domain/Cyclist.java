@@ -35,4 +35,16 @@ public class Cyclist {
 	@ManyToOne
 	@JoinColumn(name = "team_id", nullable = false)
 	private CyclingTeam cyclingTeam;
+
+	public Cyclist(int id, String fullName, String competitorNumber, Country country, CyclingTeam cyclingTeam) {
+		this.id = id;
+		this.fullName = fullName;
+		this.competitorNumber = competitorNumber;
+		this.country = country;
+		this.cyclingTeam = cyclingTeam;
+	}
+
+	public Cyclist(int id) {
+		this.id = id;
+	}
 }

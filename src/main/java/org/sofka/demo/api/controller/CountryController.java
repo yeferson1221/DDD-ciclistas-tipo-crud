@@ -31,11 +31,11 @@ public class CountryController {
 		return countries;
 	}
 	
-	@GetMapping("/country/{code}")
+	@GetMapping("/country/{country_code}")
 	public ResponseEntity<Country> findCountryByCode
-			(@PathVariable(name = "code") String code, @RequestHeader(value="Authorization") String token) {
+			(@PathVariable(name = "country_code") String countryCode, @RequestHeader(value="Authorization") String token) {
 		if (!userRepositoryIpm.validateToken(token)) { return null; }
-		Optional<Country> country = countryRepository.findCountryByCode(code);
+		Optional<Country> country = countryRepository.findCountryByCountryCode(countryCode);
 		if (country.isPresent()) {
 			return ResponseEntity.ok().body(country.get());
 		} else {
@@ -54,7 +54,7 @@ public class CountryController {
 		if (!userRepositoryIpm.validateToken(token)) { return null; }
 		return countryRepository.findById(id).map(country -> {
 			country.setName(newCountry.getName());
-			country.setCode(newCountry.getCode());
+			country.setCountryCode(newCountry.getCountryCode());
 			return countryRepository.save(country);
 		})
 		.orElseGet(() -> {

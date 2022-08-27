@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Integer> {
-	Optional<Country> findCountryByCode(String code);
+	Optional<Country> findCountryByCountryCode(String countryCode);
 }

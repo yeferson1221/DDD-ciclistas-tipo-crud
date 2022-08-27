@@ -1,6 +1,5 @@
 package org.sofka.demo.repository;
 
-import antlr.Token;
 import org.sofka.demo.domain.User;
 
 import java.util.List;
@@ -12,7 +11,7 @@ public interface UserRepository  {
 
     void delete(Integer id);
 
-    void register(User user);
+    User register(User user);
 
 
 }
