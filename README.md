@@ -4,7 +4,9 @@
     La bd solo guarda los datos temporalmente por la configuracion de los test, si desea se puede cambiar (spring.jpa.hibernate.ddl-auto = none)
     tambien esta la configuracion del toquen y el tiempo de la sesion es de una semana
    
-   ![image](https://user-images.githubusercontent.com/43868710/187256091-64d2532b-f84c-418a-bfb4-975a4a603bf3.png)
+   
+  ![image](https://user-images.githubusercontent.com/43868710/187256532-6bf636e2-9292-4a94-92eb-9fc68a885a40.png)
+
 
 
 ### Crear Usuario   
