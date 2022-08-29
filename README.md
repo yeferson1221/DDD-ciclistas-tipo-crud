@@ -18,15 +18,18 @@
    
 ###  Login
    despues se auntentica  el usuario
+   
    ![image](https://user-images.githubusercontent.com/43868710/187254276-4656b714-60e5-4905-9845-0b12a02725d7.png)
    
    este como respuesta nos da un token 
+   
    ![image](https://user-images.githubusercontent.com/43868710/187254638-bc74b0fb-c853-4a10-9531-7115961aa217.png)
    
 
 ### validacion
    
    recordar que el token debe ser puesto en todas las peticiones del Crud ejemplo 
+   
    ![image](https://user-images.githubusercontent.com/43868710/187255191-2c6abcdd-88b4-48bc-9177-365dc740d905.png)
    
    asi seria resultado de un POST con el token 
