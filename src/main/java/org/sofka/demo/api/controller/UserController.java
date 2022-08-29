@@ -9,6 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+/**
+ * [
+ *  UserController
+ *  contiene metodos crud y dos inyecciones  (UserRepository ,   UserRepositoryIpm)
+ *  todas las apis estan protegidas con el token (@RequestHeader(value="Authorization")
+ * ]
+ * @version [1,0.0]
+ *
+ * * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class UserController {

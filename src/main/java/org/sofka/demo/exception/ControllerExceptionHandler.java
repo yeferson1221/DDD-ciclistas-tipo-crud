@@ -9,6 +9,17 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+/**
+ * [
+ *  ControllerExceptionHandler
+ *  menejo de errores
+ * ]
+ * @version [1,0.0]
+ *
+ * * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @ControllerAdvice
 public class ControllerExceptionHandler {
 	@ExceptionHandler(DataIntegrityViolationException.class)

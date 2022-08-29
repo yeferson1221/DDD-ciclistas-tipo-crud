@@ -10,6 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * [
+ *  AuthController
+ *  contiene metodo login y dos inyecciones  (UserRepository,   JWTUtil)
+ * ]
+ * @version [1,0.0]
+ *
+ * * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @RestController
 public class AuthController {
 
@@ -19,6 +30,17 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
+    /**
+     * [
+     *  AuthController permite autentificarse, donde si el correo y la contraseña es diferente de null
+     *  como respuesta manda un token y si no retorna un FAIL
+     * ]
+     * @version [1,0.0]
+     *
+     * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+     * @since [1,0,0]
+     *
+     */
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
 

@@ -18,6 +18,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * [
+ *  model CyclingTeam contiene sus parametros  y contructortes, @Data  getter y setter
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @Entity
 @Table(name = "teams")
 @Data
@@ -48,12 +59,10 @@ public class CyclingTeam {
 		this.teamCode = teamCode;
 	}
 
-	public CyclingTeam(int id, String name, String teamCode, Country country, List<Cyclist> cyclists) {
-		this.id = id;
+	public CyclingTeam(String name, String teamCode, Country country) {
 		this.name = name;
 		this.teamCode = teamCode;
 		this.country = country;
-		this.cyclists = cyclists;
 	}
 	public CyclingTeam(int id, String name, String teamCode, Country country) {
 		this.id = id;

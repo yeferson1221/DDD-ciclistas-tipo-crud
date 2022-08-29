@@ -17,6 +17,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.AccessType;
 
+
+/**
+ * [
+ *  model Country contiene sus parametros  y contructortes, @Data  getter y setter
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @Entity
 @Table(name = "countries")
 @Data

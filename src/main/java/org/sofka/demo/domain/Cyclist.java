@@ -12,6 +12,17 @@ import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * [
+ *  model Cyclist contiene sus parametros  y contructortes, @Data  getter y setter
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @Entity
 @Table(name = "cyclists")
 @Data
@@ -38,6 +49,13 @@ public class Cyclist {
 
 	public Cyclist(int id, String fullName, String competitorNumber, Country country, CyclingTeam cyclingTeam) {
 		this.id = id;
+		this.fullName = fullName;
+		this.competitorNumber = competitorNumber;
+		this.country = country;
+		this.cyclingTeam = cyclingTeam;
+	}
+
+	public Cyclist( String fullName, String competitorNumber, Country country, CyclingTeam cyclingTeam) {
 		this.fullName = fullName;
 		this.competitorNumber = competitorNumber;
 		this.country = country;

@@ -12,7 +12,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
+/**
+ * [
+ *  CyclingTeamController
+ *  contiene metodos crud y dos inyecciones  (CyclingTeamRepository ,   UserRepositoryIpm)
+ *  adicional tiene el metodo (findCyclingTeamByCode) para buscar por el numero de equipo
+ *  todas las apis estan protegidas con el token (@RequestHeader(value="Authorization")
+ * ]
+ * @version [1,0.0]
+ *
+ * * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @RestController
 @RequestMapping("/api")
 public class CyclingTeamController {

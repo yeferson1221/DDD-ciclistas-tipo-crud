@@ -8,6 +8,17 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
+
+/**
+ * [
+ *  clase  CyclingTeamListSerializer  contiene metodos para serializar
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 public class CyclingTeamListSerializer extends StdSerializer<List<CyclingTeam>> {
 
 	/**

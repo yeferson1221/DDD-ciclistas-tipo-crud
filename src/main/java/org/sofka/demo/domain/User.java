@@ -5,6 +5,17 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
+/**
+ * [
+ *  model User contiene sus parametros  y contructortes, @Data  getter y setter
+ * ]
+ * @version [1,0.0]
+ *
+ * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @Entity
 @Table(name = "user")
 @Data

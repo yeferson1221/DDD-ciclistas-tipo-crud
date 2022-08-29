@@ -12,6 +12,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+/**
+ * [
+ *  UserRepositoryIpm
+ *  se implementa la interface  UserRepository, se usan sus metodos
+ *  se crean los querys necesarios
+ *  esta se  cominica directamente con la BD  (@Repository @Transactional)
+ * ]
+ * @version [1,0.0]
+ *
+ * * @author [Yeferson Valencia, yeferson.valencia@sofka.com.co]
+ * @since [1,0,0]
+ *
+ */
 @Repository
 @Transactional
 public class UserRepositoryIpm implements UserRepository{

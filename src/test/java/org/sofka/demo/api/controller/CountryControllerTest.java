@@ -76,7 +76,7 @@ class CountryControllerTest {
     }
 
     @Test
-    @Order(7)
+    @Order(5)
     @Rollback(false)
     void deleteCounty(){
         Integer idCountry = 1;
